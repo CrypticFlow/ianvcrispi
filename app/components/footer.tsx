@@ -21,7 +21,7 @@ function Footer() {
 
           {/* Spotify */}
           <a
-            href="https://open.spotify.com/artist/your-artist-id"
+            href="https://open.spotify.com/artist/4l2NOaGzRWlyLBJGx4fUrg?si=dQi66cIpR-6-WqVU8pGFag"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-red-400 hover:to-teal-400 transition-all duration-300"
