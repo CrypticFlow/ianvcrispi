@@ -1,113 +1,180 @@
+'use client'
 import Image from 'next/image'
+import Header from './components/header'
+import Nav from './components/nav'
+import { useRouter } from 'next/navigation'
+import Footer from './components/footer'
+import { motion, useInView } from 'framer-motion'
+import { useRef } from 'react'
 
-export default function Home() {
+export default function IanVCrispi() {
+  const router = useRouter()
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <div className="relative min-h-full bg-white w-full" style={{ minHeight: '100vh', backgroundColor: 'white' }}>
+      <Header />
+      <Nav />
+      
+      {/* Dove Feather positioned in bottom right corner between logo and nav */}
+      <motion.div 
+        className="h-[50vh] right-[5%] top-[30%] md:right-[15%] md:top-[30%] z-40"
+        initial={{ y: 200, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ 
+          duration: 1.2, 
+          ease: "easeOut",
+          delay: 0.5
+        }}
+      >
+        <div className="flex flex-col items-end mr-[15%]">
+          <Image
+            src="/Assets/DoveFeatherVision_001.png"
+            alt="Dove Feather"
+            width={300}
+            height={360}
+            priority
+            className="mb-4 opacity-80 hover:opacity-100 transition-all duration-300"
+            style={{
+              filter: 'hue-rotate(200deg) saturate(150%) brightness(1.2)',
+              mixBlendMode: 'multiply'
+            }}
+          />
         </div>
+      </motion.div>
+
+      {/* Scrollable content */}
+      <div className="h-[500vh] mt-[5vh] bg-white w-full" style={{ backgroundColor: 'white' }}>
+
+        {/* Second Poem - Rainbow Tears - Scroll triggered from left */}
+        <div className="h-screen flex items-end justify-start pl-[5%] pb-[30%]">
+          <motion.div
+            initial={{ x: -300, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ 
+              duration: 1.2, 
+              ease: "easeOut"
+            }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <Image
+              src="/Assets/RainbowTears_Final.png"
+              alt="Rainbow Tears"
+              width={500}
+              height={500}
+              className="opacity-80 hover:opacity-100 transition-all duration-300"
+            />
+          </motion.div>
+        </div>
+
+         {/* Third Poem - PsyberDelic - Scroll triggered from left */}
+         <div className="h-screen flex items-end justify-start pl-[15%] pb-[13%]">
+          <motion.div
+            initial={{ x: 250, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ 
+              duration: 1.2, 
+              ease: "easeOut"
+            }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <Image
+              src="/Assets/PsyberDelic_Final.png"
+              alt="PsyberDelic"
+              width={800}
+              height={800}
+              className="opacity-80 hover:opacity-100 transition-all duration-300"
+            />
+          </motion.div>
+        </div>
+
+
+        {/* Fourth Poem - Trust - Scroll triggered from right */}
+        <div className="h-screen flex items-end justify-end pr-[13%] pb-[10%]">
+          <motion.div
+            initial={{ x: -300, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ 
+              duration: 1.2, 
+              ease: "easeOut"
+            }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <Image
+              src="/Assets/Trust-Iridescent.png"
+              alt="Trust"
+              width={360}
+              height={360}
+              className="opacity-80 hover:opacity-100 transition-all duration-300"
+            />
+          </motion.div>
+        </div>
+
+        {/* Fifth Poem - Your Song - Scroll triggered from left */}
+        <div className="h-screen flex items-end justify-start pl-[13%] pb-[3%]">
+          <motion.div
+            initial={{ x: 300, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ 
+              duration: 1.2, 
+              ease: "easeOut"
+            }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <Image
+              src="/Assets/YourSong_Final.png"
+              alt="Your Song"
+              width={360}
+              height={360}
+              className="opacity-80 hover:opacity-100 transition-all duration-300"
+            />
+          </motion.div>
+        </div>
+
+        {/* Sixth Poem - Luscious Death - Scroll triggered from right */}
+        <div className="h-screen flex items-end justify-start pl-[18%] pb-[10%]">
+          <motion.div
+            initial={{ x: -300, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ 
+              duration: 1.2, 
+              ease: "easeOut"
+            }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <Image
+              src="/Assets/LusciousDeath_Final.png"
+              alt="Luscious Death"
+              width={500}
+              height={500}
+              className="opacity-80 hover:opacity-100 transition-all duration-300"
+            />
+          </motion.div>
+        </div>
+
+        {/* Seventh Poem - Mad Kiss - Scroll triggered from left */}
+        <div className="h-screen flex items-end justify-start pl-[10%] pb-[10%]">
+          <motion.div
+            initial={{ x: 300, opacity: 0 }}
+            whileInView={{ x: 0, opacity: 1 }}
+            transition={{ 
+              duration: 1.2, 
+              ease: "easeOut"
+            }}
+            viewport={{ once: true, margin: "-100px" }}
+          >
+            <Image
+              src="/Assets/MadKiss_Final.png"
+              alt="Mad Kiss"
+              width={800}
+              height={800}
+              className="opacity-80 hover:opacity-100 transition-all duration-300"
+            />
+          </motion.div>
+        </div>
+
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      <Footer />
+    </div>
   )
 }
