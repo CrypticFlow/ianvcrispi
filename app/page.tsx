@@ -11,7 +11,7 @@ export default function IanVCrispi() {
   const router = useRouter()
 
   return (
-    <div className="relative min-h-full bg-white w-full" style={{ minHeight: '100vh', backgroundColor: 'white' }}>
+    <div className="relative min-h-full bg-white w-full overflow-x-hidden" style={{ minHeight: '100vh', backgroundColor: 'white' }}>
       <Header />
       <Nav />
       

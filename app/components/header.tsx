@@ -14,10 +14,10 @@ function Header() {
           className="cursor-pointer transition-transform hover:scale-105"
         >
           <Image
-            src="/signature.png"
+            src="/Assets/IanVCrispi_Sig_2025.png"
             alt="Ian Vincenzo Crispi Signature"
-            width={1040}
-            height={1040}
+            width={300}
+            height={300}
             priority
             style={{
               filter: 'hue-rotate(0deg) saturate(300%) brightness(1.2)',
