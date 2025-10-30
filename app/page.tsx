@@ -6,9 +6,16 @@ import { useRouter } from 'next/navigation'
 import Footer from './components/footer'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
+import { useQuery } from 'convex/react'
+import { api } from '../convex/_generated/api'
 
 export default function IanVCrispi() {
   const router = useRouter()
+  const poems = useQuery(api.poems.getPoems)
+
+  if (!poems) {
+    return <div>Loading...</div>
+  }
 
   return (
     <div className="relative min-h-full bg-white w-full overflow-x-hidden" style={{ minHeight: '100vh', backgroundColor: 'white' }}>
@@ -43,135 +50,41 @@ export default function IanVCrispi() {
       </motion.div>
 
       {/* Scrollable content */}
-      <div className="h-[500vh] mt-[5vh] bg-white w-full" style={{ backgroundColor: 'white' }}>
-
-        {/* Second Poem - Rainbow Tears - Scroll triggered from left */}
-        <div className="h-screen flex items-end justify-start pl-[5%] pb-[30%]">
-          <motion.div
-            initial={{ x: -300, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ 
-              duration: 1.2, 
-              ease: "easeOut"
-            }}
-            viewport={{ once: true, margin: "-100px" }}
+      <div className="mt-[5vh] bg-white w-full" style={{ backgroundColor: 'white' }}>
+        {poems.map((poem) => (
+          <div 
+            key={poem._id} 
+            className={`h-[80vh] md:min-h-screen flex items-center justify-center md:items-end md:${
+              poem.justifyPosition === 'start' ? 'justify-start' : 
+              poem.justifyPosition === 'center' ? 'justify-center' : 
+              'justify-end'
+            } px-4 md:px-8 lg:px-16 py-4 md:pb-16 lg:pb-24`}
           >
-            <Image
-              src="/Assets/RainbowTears_Final.png"
-              alt="Rainbow Tears"
-              width={500}
-              height={500}
-              className="opacity-80 hover:opacity-100 transition-all duration-300"
-            />
-          </motion.div>
-        </div>
-
-         {/* Third Poem - PsyberDelic - Scroll triggered from left */}
-         <div className="h-screen flex items-end justify-start pl-[15%] pb-[13%]">
-          <motion.div
-            initial={{ x: 250, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ 
-              duration: 1.2, 
-              ease: "easeOut"
-            }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <Image
-              src="/Assets/PsyberDelic_Final.png"
-              alt="PsyberDelic"
-              width={800}
-              height={800}
-              className="opacity-80 hover:opacity-100 transition-all duration-300"
-            />
-          </motion.div>
-        </div>
-
-
-        {/* Fourth Poem - Trust - Scroll triggered from right */}
-        <div className="h-screen flex items-end justify-end pr-[13%] pb-[10%]">
-          <motion.div
-            initial={{ x: -300, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ 
-              duration: 1.2, 
-              ease: "easeOut"
-            }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <Image
-              src="/Assets/Trust-Iridescent.png"
-              alt="Trust"
-              width={360}
-              height={360}
-              className="opacity-80 hover:opacity-100 transition-all duration-300"
-            />
-          </motion.div>
-        </div>
-
-        {/* Fifth Poem - Your Song - Scroll triggered from left */}
-        <div className="h-screen flex items-end justify-start pl-[13%] pb-[3%]">
-          <motion.div
-            initial={{ x: 300, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ 
-              duration: 1.2, 
-              ease: "easeOut"
-            }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <Image
-              src="/Assets/YourSong_Final.png"
-              alt="Your Song"
-              width={360}
-              height={360}
-              className="opacity-80 hover:opacity-100 transition-all duration-300"
-            />
-          </motion.div>
-        </div>
-
-        {/* Sixth Poem - Luscious Death - Scroll triggered from right */}
-        <div className="h-screen flex items-end justify-start pl-[18%] pb-[10%]">
-          <motion.div
-            initial={{ x: -300, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ 
-              duration: 1.2, 
-              ease: "easeOut"
-            }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <Image
-              src="/Assets/LusciousDeath_Final.png"
-              alt="Luscious Death"
-              width={500}
-              height={500}
-              className="opacity-80 hover:opacity-100 transition-all duration-300"
-            />
-          </motion.div>
-        </div>
-
-        {/* Seventh Poem - Mad Kiss - Scroll triggered from left */}
-        <div className="h-screen flex items-end justify-start pl-[10%] pb-[10%]">
-          <motion.div
-            initial={{ x: 300, opacity: 0 }}
-            whileInView={{ x: 0, opacity: 1 }}
-            transition={{ 
-              duration: 1.2, 
-              ease: "easeOut"
-            }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <Image
-              src="/Assets/MadKiss_Final.png"
-              alt="Mad Kiss"
-              width={800}
-              height={800}
-              className="opacity-80 hover:opacity-100 transition-all duration-300"
-            />
-          </motion.div>
-        </div>
-
+            <motion.div
+              initial={{ 
+                x: -100, 
+                opacity: 0 
+              }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{ 
+                duration: 1.2, 
+                ease: "easeOut"
+              }}
+              viewport={{ once: true, margin: "-100px" }}
+            >
+              <Image
+                src={poem.imageUrl}
+                alt={poem.alt}
+                width={poem.width}
+                height={poem.height}
+                className={`opacity-80 hover:opacity-100 transition-all duration-300 object-contain
+                  w-[90vw] h-[90vw] max-w-md max-h-md ${poem.width >= 800 ? 'md:w-96 md:h-96 lg:w-[800px] lg:h-[800px]' : 
+                    poem.width >= 500 ? 'md:w-80 md:h-80 lg:w-[500px] lg:h-[500px]' :
+                    'md:w-72 md:h-72 lg:w-[360px] lg:h-[360px]'}`}
+              />
+            </motion.div>
+          </div>
+        ))}
       </div>
 
       <Footer />

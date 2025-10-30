@@ -11,7 +11,7 @@ function Footer() {
             href="https://instagram.com/crypticfl0w"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-600 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-red-400 hover:to-teal-400 transition-all duration-300"
+            className="text-gray-600 hover:text-transparent social-link transition-all duration-300"
             aria-label="Instagram"
           >
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -24,7 +24,7 @@ function Footer() {
             href="https://open.spotify.com/artist/your-artist-id"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-600 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-red-400 hover:to-teal-400 transition-all duration-300"
+            className="text-gray-600 hover:text-transparent social-link transition-all duration-300"
             aria-label="Spotify"
           >
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -37,7 +37,7 @@ function Footer() {
             href="https://soundcloud.com/crypticfl0w"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-600 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-red-400 hover:to-teal-400 transition-all duration-300"
+            className="text-gray-600 hover:text-transparent social-link transition-all duration-300"
             aria-label="SoundCloud"
           >
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -50,7 +50,7 @@ function Footer() {
             href="https://youtube.com/@CryptiqueFlow"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-600 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-red-400 hover:to-teal-400 transition-all duration-300"
+            className="text-gray-600 hover:text-transparent social-link transition-all duration-300"
             aria-label="YouTube"
           >
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -63,7 +63,7 @@ function Footer() {
             href="https://tiktok.com/@crypticfl0w"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-600 hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-red-400 hover:to-teal-400 transition-all duration-300"
+            className="text-gray-600 hover:text-transparent social-link transition-all duration-300"
             aria-label="TikTok"
           >
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -72,6 +72,16 @@ function Footer() {
           </a>
         </div>
       </div>
+      
+      <style jsx>{`
+        .social-link:hover {
+          background-image: url('/Assets/trippydude1.jpg');
+          background-size: cover;
+          background-position: center;
+          -webkit-background-clip: text;
+          background-clip: text;
+        }
+      `}</style>
     </footer>
   )
 }

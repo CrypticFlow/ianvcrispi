@@ -6,7 +6,7 @@ import Nav from '../components/nav';
 import { useRouter } from 'next/navigation';
 import Footer from '../components/footer';
 
-function Music() {
+export default function Music() {
   const router = useRouter();
 
   const handleEngineer = () => {
@@ -90,7 +90,9 @@ function Music() {
                 onClick={handleEngineer}
                 className="px-8 py-4 text-white font-bold text-lg rounded-lg transition-all duration-300 hover:scale-110 shadow-lg"
                 style={{
-                  background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
+                  backgroundImage: 'url("/Assets/trippydude1.jpg")',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
                   animation: 'softwareGlow 2s ease-in-out infinite alternate',
                   fontFamily: 'Osaka, sans-serif'
                 }}
@@ -102,7 +104,9 @@ function Music() {
                 onClick={handleDJ}
                 className="px-8 py-4 text-white font-bold text-lg rounded-lg transition-all duration-300 hover:scale-110 shadow-lg"
                 style={{
-                  background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
+                  backgroundImage: 'url("/Assets/trippydude1.jpg")',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
                   animation: 'softwareGlow 2s ease-in-out infinite alternate',
                   fontFamily: 'Osaka, sans-serif'
                 }}
@@ -114,7 +118,9 @@ function Music() {
                 onClick={handleProducer}
                 className="px-8 py-4 text-white font-bold text-lg rounded-lg transition-all duration-300 hover:scale-110 shadow-lg"
                 style={{
-                  background: 'linear-gradient(45deg, #ff8a80, #b39ddb)',
+                  backgroundImage: 'url("/Assets/trippydude1.jpg")',
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
                   animation: 'poetryGlow 2s ease-in-out infinite alternate',
                   fontFamily: 'Osaka, sans-serif'
                 }}
@@ -152,5 +158,3 @@ function Music() {
     </div>
   )
 }
-
-export default Music

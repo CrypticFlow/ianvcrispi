@@ -14,7 +14,9 @@ function Nav() {
           onClick={() => router.push('/software')}
           className="px-8 py-4 text-white font-bold text-lg rounded-lg transition-all duration-300 hover:scale-110"
           style={{
-            background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
+            backgroundImage: 'url("/Assets/trippydude1.jpg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
             animation: 'softwareGlow 2s ease-in-out infinite alternate',
             fontFamily: 'Osaka, sans-serif'
           }}
@@ -26,7 +28,9 @@ function Nav() {
           onClick={() => router.push('/music')}
           className="px-8 py-4 text-white font-bold text-lg rounded-lg transition-all duration-300 hover:scale-110"
           style={{
-            background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
+            backgroundImage: 'url("/Assets/trippydude1.jpg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
             animation: 'musicGlow 2s ease-in-out infinite alternate',
             fontFamily: 'Osaka, sans-serif'
           }}
@@ -38,7 +42,9 @@ function Nav() {
           onClick={() => router.push('/poetry')}
           className="px-8 py-4 text-white font-bold text-lg rounded-lg transition-all duration-300 hover:scale-110"
           style={{
-            background: 'linear-gradient(45deg, #ff8a80, #b39ddb)',
+            backgroundImage: 'url("/Assets/trippydude1.jpg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
             animation: 'poetryGlow 2s ease-in-out infinite alternate',
             fontFamily: 'Osaka, sans-serif'
           }}
@@ -53,7 +59,9 @@ function Nav() {
           onClick={() => setIsOpen(!isOpen)}
           className="p-3 text-white rounded-lg"
           style={{ 
-            background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
+            backgroundImage: 'url("/Assets/trippydude1.jpg")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
             fontFamily: 'Osaka, sans-serif' 
           }}
         >
@@ -66,7 +74,9 @@ function Nav() {
               onClick={() => { router.push('/software'); setIsOpen(false); }}
               className="px-4 py-2 text-white font-bold text-sm rounded-lg transition-all duration-300"
               style={{
-                background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
+                backgroundImage: 'url("/Assets/trippydude1.jpg")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
                 fontFamily: 'Osaka, sans-serif'
               }}
             >
@@ -77,7 +87,9 @@ function Nav() {
               onClick={() => { router.push('/music'); setIsOpen(false); }}
               className="px-4 py-2 text-white font-bold text-sm rounded-lg transition-all duration-300"
               style={{
-                background: 'linear-gradient(45deg, #ff6b6b, #4ecdc4)',
+                backgroundImage: 'url("/Assets/trippydude1.jpg")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
                 fontFamily: 'Osaka, sans-serif'
               }}
             >
@@ -88,7 +100,9 @@ function Nav() {
               onClick={() => { router.push('/poetry'); setIsOpen(false); }}
               className="px-4 py-2 text-white font-bold text-sm rounded-lg transition-all duration-300"
               style={{
-                background: 'linear-gradient(45deg, #ff8a80, #b39ddb)',
+                backgroundImage: 'url("/Assets/trippydude1.jpg")',
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
                 fontFamily: 'Osaka, sans-serif'
               }}
             >

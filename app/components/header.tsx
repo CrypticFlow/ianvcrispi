@@ -3,7 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
-function Header() {
+export default function Header() {
   const router = useRouter()
 
   return (
@@ -40,5 +40,3 @@ function Header() {
     </div>
   )
 }
-
-export default Header
