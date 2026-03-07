@@ -52,7 +52,7 @@ export default function VantaBirds({ children }: { children: React.ReactNode }) 
     <div className="relative min-h-screen w-full">
       <div
         ref={vantaRef}
-        className="fixed inset-0 w-full h-full"
+        className="fixed inset-0 w-full h-full pointer-events-none"
         style={{ zIndex: 0 }}
       />
       <div className="relative" style={{ zIndex: 1 }}>
