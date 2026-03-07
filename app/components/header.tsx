@@ -8,7 +8,7 @@ export default function Header() {
 
   return (
     <div className="bg-white h-auto">
-      <header className="flex justify-center items-center h-[20vh] -ml-[10%]">
+      <header className="flex justify-center items-center h-[20vh]">
         <button 
           onClick={() => router.push('/')}
           className="cursor-pointer transition-transform hover:scale-105"
