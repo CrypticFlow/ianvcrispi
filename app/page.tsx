@@ -4,7 +4,6 @@ import Link from 'next/link'
 import Header from './components/header'
 import Nav from './components/nav'
 import Footer from './components/footer'
-import VantaBirds from './components/vanta-birds'
 import { motion } from 'framer-motion'
 import { useQuery } from 'convex/react'
 import { api } from '../convex/_generated/api'
@@ -13,8 +12,7 @@ export default function IanVCrispi() {
   const poems = useQuery(api.poems.getPoems)
 
   return (
-    <VantaBirds>
-      <div className="relative min-h-full bg-transparent w-full overflow-x-hidden">
+    <div className="relative min-h-full bg-white w-full overflow-x-hidden">
         <Header />
       <Nav />
 
@@ -153,7 +151,6 @@ export default function IanVCrispi() {
           100% { background-position: 200% center; }
         }
       `}</style>
-      </div>
-    </VantaBirds>
+    </div>
   )
 }
