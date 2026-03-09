@@ -54,17 +54,17 @@ export default function IanVCrispi() {
         whileInView={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="py-4 px-4 text-center -mt-2.5"
+        className="py-4 px-4 text-center -mt-2.5 relative z-50"
       >
-        <p className="text-lg md:text-xl max-w-2xl mx-auto" style={{ fontFamily: 'Osaka, sans-serif' }}>
-          <a href="https://crypticflow.net" target="_blank" rel="noopener noreferrer" className="text-teal-400 hover:text-teal-500 transition-colors">Music</a>
-          <span className="text-gray-300 mx-2">·</span>
-          <a href="https://indiepa.ge/crypticfl0w" target="_blank" rel="noopener noreferrer" className="text-red-400 hover:text-red-500 transition-colors">Software</a>
-          <span className="text-gray-300 mx-2">·</span>
-          <a href="https://tipsfromthebar.com" target="_blank" rel="noopener noreferrer" className="text-amber-500 hover:text-amber-600 transition-colors">Cocktails</a>
-          <span className="text-gray-300 mx-2">·</span>
-          <Link href="/poetry" className="text-purple-400 hover:text-purple-500 transition-colors">Poetry</Link>
-        </p>
+        <div className="text-lg md:text-xl max-w-2xl mx-auto flex flex-wrap justify-center items-center gap-2" style={{ fontFamily: 'Osaka, sans-serif' }}>
+          <a href="https://crypticflow.net" target="_blank" rel="noopener noreferrer" title="CrypticFlow - Electronic and Experimental Music by Ian V Crispi" className="text-teal-400 hover:text-teal-500 active:text-teal-600 transition-colors py-3 px-3 cursor-pointer touch-manipulation">Music</a>
+          <span className="text-gray-300">·</span>
+          <a href="https://indiepa.ge/crypticfl0w" target="_blank" rel="noopener noreferrer" title="Software Projects - 10 Businesses in 60 Days" className="text-red-400 hover:text-red-500 active:text-red-600 transition-colors py-3 px-3 cursor-pointer touch-manipulation">Software</a>
+          <span className="text-gray-300">·</span>
+          <a href="https://tipsfromthebar.com" target="_blank" rel="noopener noreferrer" title="Tips From The Bar - Curated Cocktail Recipes" className="text-amber-500 hover:text-amber-600 active:text-amber-700 transition-colors py-3 px-3 cursor-pointer touch-manipulation">Cocktails</a>
+          <span className="text-gray-300">·</span>
+          <Link href="/poetry" title="Original Poetry by Ian V Crispi" className="text-purple-400 hover:text-purple-500 active:text-purple-600 transition-colors py-3 px-3 cursor-pointer touch-manipulation">Poetry</Link>
+        </div>
       </motion.section>
 
 
@@ -115,7 +115,7 @@ export default function IanVCrispi() {
             <div className="text-center mt-6">
               <Link
                 href="/poetry"
-                className="text-purple-400 hover:text-purple-500 transition-colors text-sm"
+                className="text-purple-400 hover:text-purple-500 active:text-purple-600 transition-colors text-sm py-3 px-4 inline-block cursor-pointer touch-manipulation"
               >
                 view more poetry →
               </Link>
