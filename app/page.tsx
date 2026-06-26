@@ -42,8 +42,8 @@ export default function IanVCrispi() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="mt-12 mb-8 text-md italic text-center px-4 rainbow-text"
         >
-          "Let no man who may work for himself,
-          <span className="block md:inline"> work for anybody else."</span>
+          "Roses are planted,
+          <span className="block md:inline"> where thorns grow."</span>
           <span className="block mt-1 text-sm not-italic">— William Blake</span>
         </motion.p>
       </section>
