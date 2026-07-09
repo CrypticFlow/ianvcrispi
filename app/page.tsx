@@ -64,6 +64,8 @@ export default function IanVCrispi() {
           <a href="https://tipsfromthebar.com" target="_blank" rel="noopener noreferrer" title="Tips From The Bar - Curated Cocktail Recipes" className="text-amber-500 hover:text-amber-600 active:text-amber-700 transition-colors py-3 px-3 cursor-pointer touch-manipulation">Cocktails</a>
           <span className="text-gray-300">·</span>
           <Link href="/poetry" title="Original Poetry by Ian V Crispi" className="text-purple-400 hover:text-purple-500 active:text-purple-600 transition-colors py-3 px-3 cursor-pointer touch-manipulation">Poetry</Link>
+          <span className="text-gray-300">·</span>
+          <a href="https://substack.com/@ianvcrispi" target="_blank" rel="noopener noreferrer" title="Ian V Crispi on Substack" className="text-orange-500 hover:text-orange-600 active:text-orange-700 transition-colors py-3 px-3 cursor-pointer touch-manipulation">Substack</a>
         </div>
       </motion.section>
 
