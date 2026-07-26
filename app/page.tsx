@@ -5,12 +5,9 @@ import Header from './components/header'
 import Nav from './components/nav'
 import Footer from './components/footer'
 import { motion } from 'framer-motion'
-import { useQuery } from 'convex/react'
-import { api } from '../convex/_generated/api'
+import { featuredPoems } from './data/poems'
 
 export default function IanVCrispi() {
-  const poems = useQuery(api.poems.getPoems)
-
   return (
     <div className="relative min-h-full bg-white w-full overflow-x-hidden">
         <Header />
@@ -42,9 +39,9 @@ export default function IanVCrispi() {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="mt-12 mb-8 text-md italic text-center px-4 rainbow-text"
         >
-          "Roses are planted,
-          <span className="block md:inline"> where thorns grow."</span>
-          <span className="block mt-1 text-sm not-italic">— William Blake</span>
+          "The longer you spend on the wrong train,
+          <span className="block md:inline"> the more expensive it will be to get home."</span>
+          <span className="block mt-1 text-sm not-italic">— Japanese Proverb</span>
         </motion.p>
       </section>
 
@@ -72,58 +69,37 @@ export default function IanVCrispi() {
 
       {/* Featured Poems */}
       <section className="py-8 bg-white">
-        {!poems ? (
-          <div className="text-center text-gray-500">Loading...</div>
-        ) : (
-          <>
-            <div className="flex flex-col items-center gap-8 px-4">
-              {poems
-                .filter((poem) =>
-                  poem.title.toLowerCase().includes('dovefeather') ||
-                  poem.title.toLowerCase().includes('rainbow') ||
-                  poem.title.toLowerCase().includes('psyber')
-                )
-                .sort((a, b) => {
-                  const getOrder = (title: string) => {
-                    if (title.toLowerCase().includes('dovefeather')) return 0
-                    if (title.toLowerCase().includes('rainbow')) return 1
-                    if (title.toLowerCase().includes('psyber')) return 2
-                    return 3
-                  }
-                  return getOrder(a.title) - getOrder(b.title)
-                })
-                .map((poem) => (
-                <motion.div
-                  key={poem._id}
-                  initial={{ y: 50, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  className="max-w-md"
-                  style={{ marginTop: poem.title.toLowerCase().includes('rainbow') ? '-70px' : undefined }}
-                >
-                  <Image
-                    src={poem.imageUrl}
-                    alt={poem.alt}
-                    width={poem.width}
-                    height={poem.height}
-                    className="opacity-90 hover:opacity-100 transition-all duration-300 object-contain w-full max-w-sm"
-                  />
-                </motion.div>
-              ))}
-            </div>
+        <div className="flex flex-col items-center gap-12 md:gap-16 px-4 sm:px-6">
+          {featuredPoems.map((poem) => (
+            <motion.div
+              key={poem.id}
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-50px" }}
+              className="w-full max-w-xl"
+            >
+              <Image
+                src={poem.imageUrl}
+                alt={poem.alt}
+                width={poem.width}
+                height={poem.height}
+                sizes="(max-width: 768px) 100vw, 576px"
+                className="opacity-90 hover:opacity-100 transition-all duration-300 object-contain w-full h-auto"
+              />
+            </motion.div>
+          ))}
+        </div>
 
-            {/* See all poetry link */}
-            <div className="text-center mt-6">
-              <Link
-                href="/poetry"
-                className="text-purple-400 hover:text-purple-500 active:text-purple-600 transition-colors text-sm py-3 px-4 inline-block cursor-pointer touch-manipulation"
-              >
-                view more poetry →
-              </Link>
-            </div>
-          </>
-        )}
+        {/* See all poetry link */}
+        <div className="text-center mt-10">
+          <Link
+            href="/poetry"
+            className="text-purple-400 hover:text-purple-500 active:text-purple-600 transition-colors text-sm py-3 px-4 inline-block cursor-pointer touch-manipulation"
+          >
+            view more poetry →
+          </Link>
+        </div>
       </section>
 
       {/* Spacer for fixed footer */}
